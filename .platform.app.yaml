@@ -10,12 +10,12 @@ web:
  commands:
       start: "gunicorn -w 4 -b unix:$SOCKET dailyreader.wsgi:application"
  locations:
- "/":
-     passthru: true
- "/static": 
-     root: "static"
-     expires: 1h
-     allow: true
+     "/":
+         passthru: true
+     "/static": 
+        root: "static"
+        expires: 1h
+        allow: true
 # The size of the persistent disk of the application (in MB).
 disk: 512
 
