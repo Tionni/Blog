@@ -1,0 +1,27 @@
+{% extends 'blogs/base.html' %}
+
+<!-- 
+<h2>blogs sections</h2>
+<ul>
+    {% for blog in blogs %}
+        <li><a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</a> - {{ blog.description}}</li>
+    {% empty %} 
+        <li>No sections have been added</li>
+    {% endfor %}   
+</ul>
+<a href="{% url 'blogs:new_blog' %}">Add a new blog</a>
+ -->
+ {% block page_header %}
+ <h1>blogs sections</h1>
+ {% endblock page_header %}
+
+ {% block content %}
+ <ul class="list-group border-bottom pb-2 mb-4">
+    {% for blog in blogs %}
+    <li class="list-group-item border-0"><a href="{% url 'blogs:blog' blog.id %}">{{ blog.title }}</a> - {{ blog.description}}</li>
+    {% empty %} 
+        <li class="list-group-item border-0">No sections have been added</li>
+    {% endfor %}   
+</ul>
+<a href="{% url 'blogs:new_blog' %}">Add a new blog</a>
+ {% endblock content %}

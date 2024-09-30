@@ -1,0 +1,15 @@
+{% extends 'blogs/base.html'%}
+{% block page_header %}
+<div class="p-3 mb-4 bg-light border rounded-3">
+   <div class="container-fluid py-4">
+      <h1 class="display-3">Daily reader</h1>
+
+   <p class="lead">Welcome to Daily Reader
+      Discover a world of  ideas, travel experiences, or tech innovations through our carefully crafted articles and stories. We bring you the latest trends, expert advice, and inspiring content, designed to ignite your curiosity and help you grow.
+      Join a community of passionate readers, explore our latest posts, and be a part of the conversation! Don’t forget to subscribe for updates delivered straight to your inbox.</p>
+   <a class="btn btn-primary btn-lg mt-1" 
+   href="{% url 'accounts:register' %}">Register &raquo;</a>
+   </div>
+</div>
+   
+{% endblock page_header %}

@@ -1,0 +1,47 @@
+{% extends 'blogs/base.html' %}
+<!-- 
+<h4>{{ blog.title }}</h4>
+<p>
+    <a href="{% url 'blogs:new_blogpost' blog.id %}">Add new blog post</a>
+    </p>
+<ul>
+    {% for blogpost in blog_posts %}
+        <li>
+            <h2>{{ blogpost.title }}</h2>
+            <p>{{ blogpost.date_added|date:'M d, Y H:i' }}</p>
+            <p>{{ blogpost.content| slice:":200"|linebreaks }}
+               <a href="{% url 'blogs:blogpost' blogpost.id %}"> <small>Read more</small></a>
+            </p>
+            
+        </li>
+    {% empty %} 
+        <li>There are no blog post</li>
+    {% endfor %}
+</ul> -->
+{% block page_header %}
+    <h1>{{ blog.title }}</h1>   
+{% endblock page_header %}
+
+{% block content %}
+<p>
+<a href="{% url 'blogs:new_blogpost' blog.id %}">Add new blog post</a>
+</p>
+
+{% for blogpost in blog_posts %}
+    <div class="card mb-3">
+       <!-- Card header with timestamp and edit link -->
+        <h4 class="card-header">{{ blogpost.title }}</h4>
+        <div class="card-body">{{ blogpost.content| slice:":200"|linebreaks }}
+            <a href="{% url 'blogs:blogpost' blogpost.id %}" class="card-link">readmore</a></div>
+        
+        <small class="card-footer">{{ blogpost.date_added|date:'M d, Y H:i' }}</small>
+    </div>
+    
+   
+    
+            
+    
+{% empty %} 
+    <p>There are no blog post</p>
+{% endfor %}
+{% endblock content %}
